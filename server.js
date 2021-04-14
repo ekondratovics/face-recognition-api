@@ -11,7 +11,7 @@ let image = require('./controllers/image');
 let db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
+    host: 'postgresql-adjacent-61518',
     user: 'postgres',
     password: 'sev17wHSp',
     database: 'face_recognition'
@@ -23,9 +23,7 @@ let app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Success.');
-});
+app.get('/', (req, res) => { res.send('Success.') });
 
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) });
 
